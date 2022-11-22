@@ -21,6 +21,7 @@
     content: '#share',
       position: 'bottom'
   });
-
- 
- 
+  $('.info-icon').toolbar({
+    content: '#info',
+      position: 'right'
+  });

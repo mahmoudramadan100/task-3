@@ -937,4 +937,205 @@ select:focus {
 }
 .Pagination .arrow .left-icon a {
   color: #fff;
+}
+
+.person-content {
+  margin: 20px 10px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 1px 3.5px 8px -1px #bdbdbd;
+  position: relative;
+}
+.person-content .title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: relative;
+}
+.person-content .title li {
+  display: inline-block;
+  color: #bdbdbd;
+  font-size: 14px;
+}
+.person-content .title li a {
+  color: #1196b1;
+  font-size: 15px;
+  font-weight: bold;
+}
+.person-content .title li a span {
+  color: #bdbdbd;
+  font-size: 14px;
+}
+.person-content .title li .icon {
+  display: inline-block;
+  color: #bdbdbd;
+}
+.person-content .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #bdbdbd;
+}
+.person-content .content {
+  margin: 15px;
+}
+.person-content .content .subject {
+  position: relative;
+  padding: 0 15px;
+}
+.person-content .content .subject h3 {
+  color: #1196b1;
+  font-size: 15px;
+  font-weight: bold;
+}
+.person-content .content .subject p {
+  color: #000;
+  font-size: 14px;
+}
+.person-content .content .subject::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background: rgba(189, 189, 189, 0.3);
+  right: 0;
+}
+.person-content .content .text {
+  position: relative;
+  padding: 0 15px;
+}
+.person-content .content .text h4 {
+  font-size: 15px;
+  color: #1196b1;
+  font-weight: bold;
+}
+.person-content .content .text p {
+  font-size: 14px;
+  color: #000;
+  line-height: 1.8;
+}
+.person-content .content .text::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background: rgba(189, 189, 189, 0.3);
+  right: 0;
+}
+.person-content .nav-tabs {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  border: none;
+}
+.person-content .nav-tabs li {
+  position: relative;
+  padding-bottom: 20px;
+  width: 48%;
+  text-align: center;
+  margin: 0 10px 0 0;
+}
+.person-content .nav-tabs li a {
+  color: #1196b1;
+  font-size: 15px;
+}
+.person-content .nav-tabs li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  right: 0;
+  background-color: #1196b1;
+}
+.person-content .box {
+  padding: 10px;
+  border: 1px solid rgba(189, 189, 189, 0.3);
+  margin: 15px;
+}
+.person-content .box h3 {
+  color: #1196b1;
+  font-size: 14px;
+  font-weight: bold;
+}
+.person-content .box p {
+  color: #bdbdbd;
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 10px 0 5px;
+  margin-bottom: 5px;
+}
+.person-content .box span {
+  display: flex;
+  justify-content: flex-end;
+  color: #bdbdbd;
+  font-size: 12px;
+}
+.person-content .box span .icon {
+  display: inline-block;
+  padding-left: 5px;
+}
+.person-content .attach {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.person-content .attach .icon-text {
+  display: inline-block;
+}
+.person-content .attach .icon-text .file {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: rgba(189, 189, 189, 0.8);
+  color: rgb(109, 108, 108);
+  font-size: 12px;
+  position: relative;
+  top: 12px;
+}
+.person-content .attach .icon-text h3, .person-content .attach .icon-text a {
+  display: inline-block;
+  font-size: 13px;
+  color: #1196b1;
+  padding: 0 5px;
+  margin: 0;
+}
+.person-content .attach .icon-text span {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #bdbdbd;
+  padding: 0 40px;
+}
+.person-content .info-icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-send {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20px;
+  padding-top: 30px;
+}
+.btn-send li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.btn-send li a {
+  background: rgb(113, 165, 122);
+  background: linear-gradient(90deg, rgb(113, 165, 122) 0%, rgb(77, 170, 150) 44%, rgb(30, 177, 187) 100%);
+  color: #fff;
+  padding: 5px 30px;
+  box-shadow: 1px 3.5px 8px -1px #bdbdbd;
+  font-size: 14px;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
