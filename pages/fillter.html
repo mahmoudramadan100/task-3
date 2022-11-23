@@ -20,6 +20,9 @@
 </head>
 <body>
     <div class="home">
+        <div class="logo">
+            <img src="../img/logo.webp" alt="logo">
+        </div>
         <div class="cotainer-fluid">
             <div class="up-navbar">
                 <div class="icons">
@@ -47,7 +50,11 @@
                 </div>
             </div>
             <!-- Start Navbar -->
-            <navbar class="navbar">
+             <!-- Start Navbar -->
+             <navbar class="navbar">
+                <div class="nav-close fade-in">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
                 <div class="logo">
                     <img src="../img/logo.png" alt="logo">
                 </div>
@@ -65,17 +72,21 @@
                     <a href="#"> التقارير </a>
                    </li>
                 </div>
-                <div class="attachment">
+                <div class="attachment" data-toggle="modal" data-target="#box-attachment">
                     <a href="#"> 
                         <i class="fa-solid fa-arrow-right-arrow-left arrow"></i>
                         تبادل مرفقات 
                     </a>
                 </div>
             </navbar>
+
+
+            <div class="nav-mobile fade-in">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+           
               <!-- End Navbar -->
             <div class="fillter">
-              
-                    
                         <input type="text" placeholder="رقم الطلب" >
                    
                         <input type="text" placeholder="اسم العميل" >

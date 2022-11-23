@@ -25,3 +25,37 @@
     content: '#info',
       position: 'right'
   });
+  // $('.icon').toolbar({
+  //   content: '#icon',
+  //     position: 'top'
+  // });
+
+
+//   $(function() {     
+//     $('.nav-mobile').on('click',function(e) {
+//         e.preventDefault();
+//         $(".navbar").slideToggle();
+//     });
+// });
+
+$(function() {     
+  $('.nav-mobile').on('click',function() {
+     $(".navbar").css(
+      'display', 'flex'
+     ).fadeIn('slow');
+  });
+
+  $('.nav-close').on('click',function() {
+    $(".navbar").css(
+     'display', 'none'
+    ).fadeOut();
+ });
+});
+
+$(document).ready(()=>{
+  let isMenuAlreadyOpen = false;
+  $('.nav-mobile').on('click',()=>{
+        $('body').css("overflow",isMenuAlreadyOpen?"auto":"hidden")
+        isMenuAlreadyOpen = !isMenuAlreadyOpen
+  })
+});

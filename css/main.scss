@@ -5,9 +5,21 @@
 @font-face {
 	font-family: 'NotoKufiArabic';
 	src: url('../font/NotoKufiArabic-Medium.ttf') format('truetype');
-	font-weight: 500;
+	font-weight: 300;
 	font-style: normal;
 }
+// @font-face {
+// 	font-family: 'NotoKufiArabic';
+// 	src: url('../font/NotoKufiArabic-Regular.ttf') format('truetype');
+// 	font-weight: 300;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: 'NotoKufiArabic';
+// 	src: url('../font/NotoKufiArabic-bold.ttf') format('truetype');
+// 	font-weight: 500;
+// 	font-style: normal;
+// }
 
 * {
     box-sizing: border-box;
@@ -16,16 +28,19 @@
 body {
     font-family: 'NotoKufiArabic', sans-serif;
     box-sizing: border-box;
-    // overflow: hidden !important;
     text-align: right;
     direction: rtl; 
-    // overflow: hidden;
     width: 100%;
-    // height: 100vh;
-    // background-color: rgba(113,165,122,0.8);
-    background-color: linear-gradient(90deg, rgba(113,165,122,1) 0%, rgba(77,170,150,1) 44%, rgba(30,177,187,1) 100%);
     background-image: url("../img/bg.webp");
     position: relative;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(4deg, rgba(113,165,122,0.5), rgba(30,177,187,0.7));
 }
 textarea:focus, input:focus{
     outline: none;
@@ -62,32 +77,47 @@ select {
     outline: 0;
     box-shadow: none
 }
-// h1,h2,h3,h4,h5,h6 {
-//     @include breakpoints(mobile) {
-//         text-align: center;
-//         font-size: 16px;
-//     }
-//     @include breakpoints(small) {
-//         text-align: center;
-//         font-size: 16px;
-//     }
-//     @include breakpoints(medium) {
-//         text-align: center;
-//         font-size: 15px;
-//     }
-//     @include breakpoints(large) {
-//         text-align: center;
-//         font-size: 16px;
-//     }
-//     @include breakpoints(extraLarge) {
-//         text-align: center;
-//         font-size: 16px;
-//     }
-//     @include breakpoints(extraLarge) {
-//         text-align: center;
-//         font-size: 16px;
-//     }
-// }
+
+
+.nav-mobile {
+    color: $white-color;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 25px;
+    @include transition;
+    display: none;
+    &:hover {
+        color: $main-color;
+    }
+    @include breakpoints(small) {
+        display: block;
+    }
+    @include breakpoints(mobile) {
+        display: block;
+    }
+    
+}
+.nav-close {
+    color: $white-color;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    font-size: 25px;
+    @include transition;
+    display: none;
+    &:hover {
+        color: $main-color;
+    }
+    @include breakpoints(small) {
+        display: block;
+    }
+    @include breakpoints(mobile) {
+        display: block;
+    }
+}
 
 .body-login {
     overflow: hidden;
@@ -95,9 +125,10 @@ select {
     height: 100vh;
     position: relative;
     padding-top: 40px;
-    // border-radius: 33% 0% 10% 55% / 39% 6% 0% 61%;
+    // clip-path: polygon(46.5% 0%, 85% 0%, 100% 0%, 100% 100%, 85% 100%, 45.3% 100%, 30.9% 49.5%, 32.2% 33.8%);
     clip-path: polygon(39% 0, 100% 0, 100% 100%, 37% 100%, 0 26%);
     background-color: #fff;
+
     .form-login {
         height: 100vh;
         display: flex;
@@ -419,9 +450,52 @@ select {
             padding-top: 60px;
         }
     }
+.logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    width: 200px;
+    height: 100px;
+    background-color: $white-color;
+    border-radius: 8% 10% 0% 100% / 27% 0% 0% 55%  ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 3.5px 8px -1px #6a6a6a;
+    img {
+        max-width: 160px;
+        max-height: 75px;
+        object-fit: contain;
+        display: flex;
+        @include breakpoints(medium) {
+            width: 100px;
+            height: 60px;
+        }
+        @include breakpoints(small) {
+            width: 95px;
+            height: 55px;
+        }
+        @include breakpoints(mobile) {
+            width: 90px;
+            height: 50px;
+        }
+    }
 
+    @include breakpoints(medium) {
+        width: 140px;
+        height: 70px;
+    }
+    @include breakpoints(small) {
+        display: none;
+    }
+    @include breakpoints(mobile) {
+       display: none;
+    }
+}
     // Start Home Page
     .home {
+        position: relative;
         background-image: url(../img/bg.webp);
         background-repeat: no-repeat;
         background-size: cover;
@@ -486,24 +560,29 @@ select {
             display: flex;
             flex-direction: row;
             .logo {
-                display: none;
+                    display: none;
                     position: relative;
-                    top: -75px;
-                    right: -5px;
-                    width: 300px;
-                    height: 150px;
-                    background-color: #fff;
-                    border-radius: 4% 50% 0% 97%/17% 0% 0% 58%;
+                    top: 0;
+                    right: 0px;
+                    width: 150px;
+                    height: 70px;
+                    background-color: $white-color;
+                    border-radius: 15px;
                     text-align: center;
-                    transform: rotate(355deg);
-                    box-shadow: 4px -1px 8px 0px;
-
                     img {
-                        width: 220px;
-                        height: 120px;
+                        margin: 0 auto;
+                        width: 130;
+                        height: 140;
                         object-fit: contain;
                     }
-
+                    @include breakpoints(small) {
+                        display: flex;
+                        align-items: center;
+                    }
+                    @include breakpoints(mobile) {
+                        display: flex;
+                        align-items: center;
+                    }
             }
             .ul-nav {
                 display: flex;
@@ -511,9 +590,14 @@ select {
                 justify-content: center;
                 margin: 0 auto;
                 li {
+                    display: flex;
                     padding: 0 15px;
-                    @include breakpoints(medium) {
-                        padding: 0 7px;
+
+                    @include breakpoints(small) {
+                        padding: 10px 7px;
+                    }
+                    @include breakpoints(mobile) {
+                        padding: 10px 7px;
                     }
                     a {
                         color: $white-color;
@@ -522,10 +606,29 @@ select {
                         &:hover {
                             color: $main-color;
                         }
+                        @include breakpoints(medium) {
+                            font-size: 12px;
+                        }
                         @include breakpoints(mobile) {
                             font-size: 12px;
                         }
                     }
+                }
+                @include breakpoints(small){
+                    display: flex;
+                    list-style: none;
+                    justify-content: flex-start;
+                    margin: 0 auto;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                @include breakpoints(mobile){
+                    display: flex;
+                    list-style: none;
+                    justify-content: flex-start;
+                    margin: 0 auto;
+                    flex-direction: column;
+                    align-items: flex-start;
                 }
             }
             .attachment {
@@ -547,20 +650,46 @@ select {
                     }
                 }
                 @include breakpoints(small) {
-                    margin: 10px auto;
-                    font-size: 12px;
+                    // margin: 10px auto;
+                    // font-size: 12px;
+                    display: none;
                 }
                 @include breakpoints(mobile) {
-                    margin: 10px auto;
-                    font-size: 12px;
+                    // margin: 10px auto;
+                    // font-size: 12px;
+                    display: none;
                 }
+            }
+
+            @include breakpoints(small) {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                height: 100vh;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                padding: 30px 0 0;
+                display: none;
+            }
+            @include breakpoints(mobile) {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                height: 100vh;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                padding: 30px 0 0;
+                display: none;
             }
         }
         // End Navbar
         .info {
             display: flex;
-            height: 50vh;
+            // height: 50vh;
             align-items: center;
+            margin-top: 50px;
 
             .import {
                 -webkit-box-shadow: 1px 3.5px 8px -1px $gray-color;
@@ -644,6 +773,7 @@ select {
         }
     }
 // Toolbar 
+
 #login {
     a {
         font-size: 10px;
@@ -687,11 +817,13 @@ select {
             color: $main-color;
             font-weight: bold;
         }
+        ul {
+            list-style: none;
+        }
     }
 
-
-
 // Start FillTer Page
+
 .fillter {
     padding: 5px 10px 15px;
     margin: 5px 10px;
@@ -757,22 +889,22 @@ select {
         cursor: pointer;
     }
 
-    input[type=date]::-webkit-datetime-edit-text {
+    // input[type=date]::-webkit-datetime-edit-text {
      
-        display: none;
-    }
-    input[type=date]::-webkit-datetime-edit-month-field{
+    //     display: none;
+    // }
+    // input[type=date]::-webkit-datetime-edit-month-field{
       
-        display: none;
-    }
-    input[type=date]::-webkit-datetime-edit-day-field {
+    //     display: none;
+    // }
+    // input[type=date]::-webkit-datetime-edit-day-field {
       
-        display: none;
-    }
-    input[type=date]::-webkit-datetime-edit-year-field {
+    //     display: none;
+    // }
+    // input[type=date]::-webkit-datetime-edit-year-field {
       
-        display: none;
-    }
+    //     display: none;
+    // }
 }
 .content-fillter {
     margin: 20px 0;
@@ -788,7 +920,7 @@ select {
             border-radius: 5px;
             position: relative;
             color: rgb(85, 85, 85);
-           
+        
             ul {
                 display: flex;
                 justify-content: space-between;
@@ -855,6 +987,7 @@ select {
     font-size: 12px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
     input {
         width: 40px;
@@ -904,6 +1037,8 @@ select {
         // }
 }
 
+// End Fillter page
+
 // Start Person Page
 .person-content {
     margin: 20px 10px;
@@ -946,6 +1081,7 @@ select {
     }
     .content {
         margin: 15px;
+        margin-bottom: 25px;
         // height: 600px;
         .subject {
             position: relative;
@@ -994,7 +1130,9 @@ select {
         }
 
     }
-
+    .tab-content {
+        border-right: 1px solid rgba($gray-color, 0.8);
+    }
     .nav-tabs {
         padding: 10px 0;
         display: flex;
@@ -1005,20 +1143,44 @@ select {
             padding-bottom: 20px;
             width: 48%;
             text-align: center;
-            margin: 0 10px 0 0;
+            margin: 0 ;
             a {
                 color: $main-color;
                 font-size: 15px;
-            }
-            &::after {
-                content: '';
-                position: absolute;
                 width: 100%;
-                height: 3px;
-                bottom: 0;
-                right: 0;
-                background-color: $main-color;
+                display: inline-block;
+                padding-bottom: 20px;
             }
+
+               .active {
+                position: relative;
+                @include transition;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    bottom: 0;
+                    right: 0;
+                    background: $background-color;
+                    background: $linear-color;
+                }
+                } 
+            //     .show {
+            //     background: $background-color;
+            //     background: $linear-color;
+            //     color: $white-color;
+            //     }
+            // &::after {
+            //     content: '';
+            //     position: absolute;
+            //     width: 100%;
+            //     height: 3px;
+            //     bottom: 0;
+            //     right: 0;
+            //     background: $background-color;
+            //     background: $linear-color;
+            // }
         }
     }
     .box {
@@ -1104,6 +1266,13 @@ select {
     margin-left: 20px;
     padding-top: 30px;
 
+    @include breakpoints (small) {
+        justify-content: center;
+    }
+    @include breakpoints (mobile) {
+        justify-content: center;
+    }
+
     li {
         display: inline-block;
         padding: 0 5px;
@@ -1115,6 +1284,390 @@ select {
             box-shadow: 1px 3.5px 8px -1px #bdbdbd;
             font-size: 14px;
             text-align: center;
+        }
+    }
+}
+
+// End Person Page
+
+// Modal Body
+.modal {
+    box-shadow: 1px 3.5px 8px -1px $gray-color;
+    padding: 20px 10px;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin: 0 5px;
+    
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba($gray-color, 0.8);
+            right: 0;
+        }
+
+        h5 {
+            color: #1196b1;
+            font-size: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0;
+            padding: 5px;
+        
+        }
+        .close {
+            color: $gray-color;
+            font-size: 15px;
+            display: inline-block;
+            margin-left: 0;
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+
+    .modal-content {
+        width: 600px;
+        margin: 0 auto;
+
+        @include breakpoints(medium) {
+            width: 550px;
+        }
+        @include breakpoints(small) {
+            width: 350px;
+        }
+        @include breakpoints(mobile) {
+            width: 300px;
+        }
+    }
+
+    .modal-body {
+        margin: 10px;
+       
+        .nav-tabs {
+            list-style: none;
+            list-style: none;
+            padding: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            li {
+                display: inline-block;
+               a {
+                // background: $background-color;
+                background: $gray-color;
+                padding: 3px 30px;
+                color: $white-color;
+                font-size: 15px;
+                @include breakpoints(small) {
+                    padding: 10px 20px;
+                    font-size: 10px;
+                }
+                @include breakpoints(mobile) {
+                    padding: 10px 20px;
+                    font-size: 10px;
+                }
+               }
+
+               .active {
+                background: $background-color;
+                background: $linear-color;
+                color: $white-color;
+                } 
+                .show {
+                background: $background-color;
+                background: $linear-color;
+                color: $white-color;
+                }
+                .left {
+                    border-radius: 10px 0 0 10px;
+                }
+                .right {
+                    border-radius: 0px 10px 10px 0px;
+                }
+            }
+           
+        }
+
+        .tab-content {
+            padding: 10px;
+            .form {
+                text-align: right;
+                label {
+                    font-size: 14px;
+                    color: #000;
+                    display: block;
+                    margin-top: 15px;
+                }
+                input {
+                    display: block;
+                    padding: 10px;
+                    border: 1px solid rgba($gray-color, 0.8);
+                    border-radius: 50px;
+                    width: 100%;
+                    @include transition;
+                    &:focus {
+                        border: 1px solid $main-color;
+                    }
+                    @include breakpoints(small) {
+                        padding: 5px;
+                    }
+                    @include breakpoints(mobile) {
+                        padding: 5px;
+                    }
+                }
+                .input-text {
+                    position: relative;
+                }
+                .icon {
+                    position: absolute; 
+                    background: $background-color;
+                    background: $linear-color;
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: bold;
+                    top: 8px;
+                    left: 5px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    line-height: 30px;
+                    text-align: center;
+
+                    @include breakpoints(small) {
+                        top: 3px;
+                    }
+                    @include breakpoints(mobile) {
+                        top: 3px;
+                    }
+                }
+            }
+            textarea {
+                resize: none;
+                width: 100%;
+                height: 150px;
+                border: 1px solid rgba($gray-color, 0.8);
+                border-radius: 15px;
+                @include transition;
+                padding: 15px;
+                &:focus {
+                    border: 1px solid $main-color;
+                }
+
+                @include breakpoints(small) {
+                    height: 110px;
+                }
+                @include breakpoints(mobile) {
+                    height: 100px;
+                }
+              }
+
+              .add-link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: rgba($gray-color, 0.8);
+                    width: 100%;
+                    height: 2px;
+                    right: 0;
+                    bottom: 45%;
+                }
+
+                h3 {
+                    text-align: center;
+                    padding: 10px;
+                    margin: 10px 0;
+                    position: relative;
+                    background: $white-color;
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: $main-color;
+                }
+              }
+        }
+    }
+    .export {
+        margin-left: 10px;
+
+        .line {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                right: 15px;
+                height: 100%;
+                width: 2px;
+                background: rgba($gray-color, 0.8);
+
+                @include breakpoints(small) {
+                    display: none;
+                }
+                @include breakpoints(mobile) {
+                    display: none;
+                }
+            }
+        }
+        textarea {
+            height: 80px !important;
+            padding: 10px !important;
+        }
+        input {
+            padding: 5px !important;
+        }
+
+        .icon {
+            top: 3px !important;
+        }
+        input#upload {
+            opacity: 0; 
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+        .upload {
+            padding: 20px 0;
+            border: 1px solid $gray-color;
+            border-radius: 15px;
+            position: relative;
+            label {
+                text-align: center;
+                color: $main-color !important;
+                font-size: 13px;
+                margin-top: 15px;
+            }
+            .icon-upload {
+                font-size: 17px;
+                text-align: center;
+                color: $white-color;
+                background-color: rgba($gray-color, 0.5);
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                border: 1px solid rgba(189, 189, 189, 0.3);
+                margin: 0 auto;
+            }
+        }
+
+        .name-pro {
+            padding-right: 15px;
+            padding-bottom: 5px;
+            position: relative;
+            margin: 20px 15px 10px 0;
+        }
+
+        .item {
+
+            .name {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    display: inline-block;
+                    font-size: 13px;
+                    color: #000;
+                }
+                .icon-close {
+                    color: rgba($gray-color, 0.8);
+                    @include transition;
+                    font-size: 14px;
+                    padding: 0 5px;
+                    cursor: pointer;
+                    &:hover {
+                        color:#000;
+                        cursor: pointer;
+                    }
+                    
+                    .icons {
+                        display: inline-block;
+                        padding: 0 3px;
+                        @include transition;
+                        &:hover {
+                            color:#000;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .progress,
+            .link {
+                margin-top: 2px;
+                height: 5px;
+                .progress-bar {
+                    background: $main-color;
+                }
+            }
+            .link {
+                color: $gray-color;
+                font-size: 13px;
+                @include transition;
+                cursor: pointer;
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+
+
+    .button-send {
+        margin: 20px 0;
+        display: flex;
+        justify-content: flex-end;
+        @include breakpoints(small) {
+            justify-content: center;
+        }
+        @include breakpoints(mobile) {
+            justify-content: center;
+        }
+    }
+    .bttn-send {
+        color: $white-color;
+        text-align: center;
+        padding: 8px 20px;
+        background: $background-color;
+        background: $linear-color;
+        position: relative;
+        left: 0;
+        .icon {
+            padding: 0 30px 0 0px;
+            color: #bdbdbd;
+            @include breakpoints(small) {
+                padding: 0 25px 0 0px;
+            }
+            @include breakpoints(mobile) {
+                padding: 0 20px 0 0px;
+            }
+        }
+        @include breakpoints(small) {
+            padding: 6px 17px;
+        }
+        @include breakpoints(mobile) {
+            padding: 5px 16px;
+        }
+    }
+    .modal-footer {
+        @include breakpoints(small) {
+            justify-content: center;
+        }
+        @include breakpoints(mobile) {
+            justify-content: center;
         }
     }
 }

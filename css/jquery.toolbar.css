@@ -86,7 +86,7 @@
   color: white;
 }
 .btn-toolbar-info-o {
-  background-color: #9175bd;
+  background-color: #fff;
 }
 .btn-toolbar-info-o.pressed {
   background-color: #a88cd5;
@@ -355,7 +355,7 @@
 }
 .toolbar-danger .tool-item.selected,
 .toolbar-danger .tool-item:hover {
-  background: #cc0000;
+  background: #ffffff;
   color: white;
 }
 .toolbar-warning {
@@ -382,10 +382,10 @@
   color: white;
 }
 .toolbar-info {
-  background-color: #e96300;
+  background-color: #ffffff;
 }
 .toolbar-info.tool-top .arrow {
-  border-color: #e96300 transparent transparent;
+  border-color: #ffffff transparent transparent;
 }
 .toolbar-info.tool-bottom .arrow {
   border-color: transparent transparent #e96300;
@@ -414,10 +414,10 @@
   border-color: transparent transparent #28948c;
 }
 .toolbar-success.tool-left .arrow {
-  border-color: transparent transparent transparent #28948c;
+  border-color: transparent transparent transparent #ffffff;
 }
 .toolbar-success.tool-right .arrow {
-  border-color: transparent #28948c transparent transparent;
+  border-color: transparent #ffffff transparent transparent;
 }
 .toolbar-success .tool-item > .fa {
   color: white;
@@ -428,26 +428,26 @@
   color: white;
 }
 .toolbar-info-o {
-  background-color: #9175bd;
+  background-color: #fff;
 }
 .toolbar-info-o.tool-top .arrow {
-  border-color: #9175bd transparent transparent;
+  border-color: #ffffff transparent transparent;
 }
 .toolbar-info-o.tool-bottom .arrow {
-  border-color: transparent transparent #9175bd;
+  border-color: transparent transparent #ffffff;
 }
 .toolbar-info-o.tool-left .arrow {
-  border-color: transparent transparent transparent #9175bd;
+  border-color: transparent transparent transparent #fff;
 }
 .toolbar-info-o.tool-right .arrow {
-  border-color: transparent #9175bd transparent transparent;
+  border-color: transparent #fff transparent transparent;
 }
 .toolbar-info-o .tool-item > .fa {
   color: white;
 }
 .toolbar-info-o .tool-item.selected,
 .toolbar-info-o .tool-item:hover {
-  background: #a88cd5;
+  background: #ffffff;
   color: white;
 }
 .toolbar-light {
