@@ -1,12 +1,12 @@
-@use "sass/color" as * ;
+@use "sass/color" as *;
 @use 'sass/varibles' as *;
 @use 'sass/mixins' as *;
 
 @font-face {
-	font-family: 'NotoKufiArabic';
-	src: url('../font/NotoKufiArabic-Medium.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
+    font-family: 'NotoKufiArabic';
+    src: url("../font/NotoKufiArabic-Medium.ttf") format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
 // @font-face {
 // 	font-family: 'NotoKufiArabic';
@@ -26,23 +26,29 @@
     outline: none;
 }
 body {
-    font-family: 'NotoKufiArabic', sans-serif;
+    font-family: "NotoKufiArabic", sans-serif;
     box-sizing: border-box;
     text-align: right;
-    direction: rtl; 
+    direction: rtl;
     width: 100%;
-    background-image: url("../img/bg.webp");
+    overflow: hidden;
+}
+.bg-color {
+    width: 100%;
+    background: url("../img/bg.webp") no-repeat left top, linear-gradient(206deg,#074b50, #1a4943);
+    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= "#71a57a",endColorstr="#1db1bb",GradientType=1));
     position: relative;
 }
-.overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(4deg, rgba(113,165,122,0.5), rgba(30,177,187,0.7));
-}
-textarea:focus, input:focus{
+// .overlay {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     @include bg;
+// }
+input:focus,
+textarea:focus {
     outline: none;
 }
 
@@ -75,9 +81,8 @@ select {
     border: none;
     border-color: transparent;
     outline: 0;
-    box-shadow: none
+    box-shadow: none;
 }
-
 
 .nav-mobile {
     color: $white-color;
@@ -97,7 +102,7 @@ select {
     @include breakpoints(mobile) {
         display: block;
     }
-    
+
 }
 .nav-close {
     color: $white-color;
@@ -120,115 +125,190 @@ select {
 }
 
 .body-login {
-    overflow: hidden;
-    width: 70%;
+    width: 65%;
     height: 100vh;
     position: relative;
     padding-top: 40px;
-    border-radius: 24% 0% 0% 13% / 26% 10% 10% 59% ;
-    // clip-path: polygon(46.5% 0%, 85% 0%, 100% 0%, 100% 100%, 85% 100%, 45.3% 100%, 30.9% 49.5%, 32.2% 33.8%);
-    clip-path: polygon(39% 0, 100% 0, 100% 100%, 37% 100%, 0 26%);
-    background-color: #fff;
+    background-color: transparent;
 
+    .content {
+        padding: 0 100px 0 0;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include breakpoints(small) {
+            padding: 0;
+        }
+        @include breakpoints(mobile) {
+            padding: 0;
+        }
+    }
     .form-login {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         justify-items: center;
-        width: 400px;
-        padding-right: 70px;
+        max-width: 500px;
+        position: absolute;
+        z-index: 9999;
+        background: #fff;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        width: 600px;
+
         .img {
-            max-width: 280px;
-            height: 150px;
-            margin: 0 auto;
-            margin-bottom: 15px;
+            max-width: 235px;
+            height: 60px;
+            margin: 0 auto 15px;
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
+                @include breakpoints(small) {
+                    width: 150px;
+                    height: 70px;
+                    object-fit: contain;
+                    object-fit: contain;
+                    text-align: center;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @include breakpoints(mobile) {
+                    width: 150px;
+                    height: 70px;
+                    object-fit: contain;
+                    object-fit: contain;
+                    text-align: center;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
             @include breakpoints(medium) {
                 max-width: 170px;
                 height: 95px;
             }
             @include breakpoints(small) {
-                max-width: 155px;
-                height: 85px;
+                width: 200px;
+                height: 70px;
+                border-radius: 15px;
+                background: #fff;
             }
             @include breakpoints(mobile) {
-                max-width: 150px;
-                height: 80px;
+                width: 200px;
+                height: 70px;
+                border-radius: 15px;
+                background: #fff;
             }
-           
+
         }
         form {
-            padding:20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 30px 0 15px;
 
             .form-group {
                 position: relative;
                 width: 400px;
                 input {
                     width: 100%;
-                     height: 40px;
-                     border: 1px solid $gray-color;
-                     border-radius: 50px;
-                     padding: 5px 15px;
-                     position: relative;
-                     font-size: 13px;
-                     @include transition;
+                    height: 40px;
+                    border: 1px solid $border-color;
+                    border-radius: 50px;
+                    padding: 5px 15px;
+                    position: relative;
+                    font-size: 13px;
+                    @include transition;
                     &:focus {
                         border: 1px solid $main-color;
                     }
 
                     &::placeholder {
-                     color: $gray-color;
-                     font-size: 14px;
-                     @include breakpoints(small) {
+                        color: $gray-color;
+                        font-size: 14px;
+                        @include breakpoints(small) {
+                            font-size: 12px;
+                        }
+                        @include breakpoints(mobile) {
+                            font-size: 11px;
+                        }
+                    }
+                    @include breakpoints(medium) {
                         font-size: 12px;
-                     }
-                     @include breakpoints(mobile) {
-                        font-size: 11px;
-                     }
-                 }
-                 @include breakpoints(medium) {
-                    font-size: 12px;
-                 }
-                 @include breakpoints(small) {
-                    font-size: 13px;
-                 }
-                 @include breakpoints(mobile) {
-                    font-size: 12px;
-                 }
+                    }
+                    @include breakpoints(small) {
+                        font-size: 13px;
+                    }
+                    @include breakpoints(mobile) {
+                        font-size: 12px;
+                    }
 
-             }
-             .icon {
+                }
+                .icon {
                     position: absolute;
-                    left: 20px;
-                    top: 10px;
-                    font-size: 14px;
-                    color: #a8a8a8;
-             }
-             @include breakpoints(medium) {
-                width: 300px;
+                    left: 10px;
+                    top: 4px;
+                    font-size: 10px;
+                    color: $gray-color;
+                    padding: 10px;
+                    border-radius: 50%;
+                    background: $border-color;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @include breakpoints(medium) {
+                    width: 300px;
+                }
+                @include breakpoints(small) {
+                    width: 300px;
+                }
+                @include breakpoints(mobile) {
+                    width: 300px;
+                }
             }
-             @include breakpoints(small) {
-                width: 300px;
-            }
-            @include breakpoints(mobile) {
-                width: 300px;
-            }
-            }
-           
+
             .g-recaptcha {
                 width: 400px !important;
                 margin: 20px 0 0;
                 border: none;
+                @include breakpoints(medium) {
+                    width: 380px !important;
+                    margin: 20px 0 0;
+                    border: none;
+                    position: relative;
+                    right: 12%;
+                }
+                @include breakpoints(small) {
+                    width: 300px !important;
+                    margin: 20px auto 0;
+                    border: none;
+                    position: relative;
+                    right: 0;
+                    left: 50%;
+                }
+                @include breakpoints(mobile) {
+                    width: 300px !important;
+                    margin: 20px auto 0;
+                    border: none;
+                    position: relative;
+                    right: 0;
+                    left: 50%;
+                }
             }
             iframe {
                 width: 400px !important;
                 background: #f9f9f9;
-                border: 1px solid $gray-color;
+                border: 1px solid $border-color;
                 @include breakpoints(medium) {
                     width: 100% !important;
                 }
@@ -244,67 +324,65 @@ select {
                 box-shadow: none !important;
             }
             .forget {
-                margin: 10px 0 0;
+                margin: 15px 0;
                 display: flex;
                 justify-content: space-between;
-                width: 400px;
+                width: 100%;
                 input[type=checkbox] {
-                   width: 15px;
-                   height: 15px;
-                  
-                   @include breakpoints(small) {
-                    font-size: 13px;
-                 }
-                   @include breakpoints(mobile) {
-                    font-size: 10px;
-                 }
+                    width: 15px;
+                    height: 15px;
+
+                    @include breakpoints(small) {
+                        font-size: 13px;
+                    }
+                    @include breakpoints(mobile) {
+                        font-size: 10px;
+                    }
                 }
                 .form-check {
                     position: relative;
                     display: inline-block;
                     right: 0;
-                    font-size: 15px;
+                    font-size: 13px;
                     @include breakpoints(small) {
                         font-size: 12px;
-                     }
+                    }
                     @include breakpoints(mobile) {
                         font-size: 12px;
-                     }
+                    }
                 }
                 a {
                     @include transition;
-                    color: $main-color;
+                    color: $text-color;
                     text-decoration: none;
-                    font-size: 14px;
+                    font-size: 13px;
                     position: relative;
                     &:hover {
-                        color: $gray-color;
+                        color: $black-color;
                     }
                     @include breakpoints(small) {
-                       font-size: 13px;
+                        font-size: 12px;
                     }
                     @include breakpoints(mobile) {
-                        font-size: 12px;
-                     }
+                        font-size: 11px;
+                    }
                 }
                 @include breakpoints(medium) {
                     width: 100%;
                 }
                 @include breakpoints(small) {
-                    width: 100%;
+                    width: 70%;
                 }
                 @include breakpoints(mobile) {
-                    width: 100%;
+                    width: 70%;
                 }
             }
         }
         .btn-login {
-            padding: 9px;
-            width: 230px;
+            padding: 10px;
+            width: 300px;
             color: #fff;
-            background: $background-color;
-            background: $linear-color;
-            margin: 15px auto;
+            margin: 20px auto;
             display: flex;
             justify-content: center;
             outline: none;
@@ -312,6 +390,8 @@ select {
             border: 1px solid $gray-color;
             position: relative;
             @include transition;
+            @include bg;
+            @include shadow;
             &:hover {
                 background-color: $main-color;
                 border: 1px solid #d4d4d4;
@@ -321,91 +401,128 @@ select {
                 position: absolute;
                 left: 20px;
                 top: 10px;
-                font-size: 18px;
-                color: #a8a8a8;
-                }
-                @include breakpoints(small) {
-                    width: 230px;
-                    margin: 10px auto;
-                }
-                @include breakpoints(mobile) {
-                    width: 230px;
-                    margin: 10px auto 0;
-                 }
-            }
-            .p {
-                color: $black-color;
-                font-size: 15px;
-                text-align: center;
-                line-height: 1.5;
-                margin: 20px;
-                @include breakpoints(small) {
-                    font-size: 14px;
-                 }
-                @include breakpoints(mobile) {
-                    font-size: 13px;
-                 }
-            }
-            span {
-                color: $black-color;
-                font-size: 15px;
-                text-align: center;
-                line-height: 1.5;
-               padding: 0 5px 0 0;
-                @include breakpoints(small) {
-                    font-size: 14px;
-                 }
-                @include breakpoints(mobile) {
-                    font-size: 13px;
-                 }
+                font-size: 22px;
+                color: $icon-color;
             }
             @include breakpoints(medium) {
-                width: 350px;
-                padding-right: 40;
-             }
+                width: 230px;
+                margin: 10px auto;
+            }
             @include breakpoints(small) {
-                width: 300px;
-                padding-right: 30px;
-             }
+                width: 230px;
+                margin: 10px auto;
+            }
             @include breakpoints(mobile) {
-                width: 300px;
-                padding-right: 20px;
-             }
+                width: 230px;
+                margin: 10px auto 0;
+            }
         }
-        .footer {
-            margin: 10px 0 0;
-            color: $gray-color;
-            font-size: 14px;
+        .p {
+            color: $black-color;
+            font-size: 15px;
             text-align: center;
-            @include breakpoints(medium) {
-                font-size: 12px;
-             }
+            line-height: 1.5;
+            margin: 20px;
             @include breakpoints(small) {
-                font-size: 13px;
-             }
+                font-size: 14px;
+            }
             @include breakpoints(mobile) {
-                font-size: 12px;
-             }
-             img {
-                width: 70px;
-                height: 130px;
-                object-fit: contain;
-             }
+                font-size: 13px;
+            }
+        }
+        span {
+            color: $gray-color;
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            padding: 0 5px 0 0;
+            @include breakpoints(small) {
+                font-size: 14px;
+            }
+            @include breakpoints(mobile) {
+                font-size: 13px;
+            }
         }
         @include breakpoints(medium) {
-            width: 80%;
-            clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 40%);
+            width: 400px;
+            padding-right: 40;
         }
         @include breakpoints(small) {
-            width: 90%;
-            clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 40%);
-            padding-top: 60px;  
+            width: 100%;
+            background-color: transparent;
+            padding: 0 20px;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
         }
         @include breakpoints(mobile) {
-            width: 90%;
-            clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 40%);
-            padding-top: 60px;
+            width: 100%;
+            background-color: transparent;
+            padding: 0 20px;
         }
+    }
+    .footer {
+        margin: 10px 0;
+        color: #b3b3b3;
+        font-size: 14px;
+        text-align: center;
+        @include breakpoints(medium) {
+            font-size: 12px;
+        }
+        @include breakpoints(small) {
+            font-size: 13px;
+        }
+        @include breakpoints(mobile) {
+            font-size: 12px;
+        }
+        img {
+            object-fit: contain;
+            position: relative;
+            top: 4px;
+        }
+        p {
+            margin: 10px 0 0 !important;
+        }
+    }
+    @include breakpoints(medium) {}
+    @include breakpoints(small) {}
+    @include breakpoints(mobile) {}
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        rotate: 50deg;
+        border-radius: 0 0 0 15%;
+        overflow: hidden;
+        z-index: 1000;
+        // @include breakpoints(medium) {
+        //     rotate: 60deg;
+        // }
+        @include breakpoints(small) {
+            background-color: transparent;
+        }
+        @include breakpoints(mobile) {
+            background-color: transparent;
+        }
+    }
+
+    @include rotate {
+        width: 70%;
+    }
+    @include breakpoints(medium) {
+        width: 78%;
+    }
+    @include breakpoints(small) {
+        width: 100%;
+    }
+    @include breakpoints(mobile) {
+        width: 100%;
+    }
 
 }
 
@@ -435,80 +552,88 @@ select {
                 top: 10px;
                 font-size: 18px;
                 color: #a8a8a8;
-                }
-                @include breakpoints(medium) {
-                    width: 230px;
-                    margin: 5px 5px;
-                }
-                @include breakpoints(small) {
-                    margin: 5px auto;
-                    width: 230px;
-                }
-                @include breakpoints(mobile) {
-                    margin: 5px auto;
-                    width: 230px;
-                 }
-            }
-
-            span {
-                color: $black-color;
-                font-size: 15px;
-                text-align: center;
-                line-height: 1.5;
-                height: 60px;
-                @include breakpoints(small) {
-                    font-size: 14px;
-                 }
-                @include breakpoints(mobile) {
-                    font-size: 13px;
-                 }
             }
             @include breakpoints(medium) {
-                width: 350px;
-                padding-right: 40;
-             }
+                width: 230px;
+                margin: 5px;
+            }
             @include breakpoints(small) {
-                width: 300px;
-                padding-right: 30px;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: column;
-             }
+                margin: 5px auto;
+                width: 230px;
+            }
             @include breakpoints(mobile) {
-                width: 300px;
-                padding-right: 20px;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: column;
-             }
+                margin: 5px auto;
+                width: 230px;
+            }
+        }
+
+        span {
+            color: $black-color;
+            font-size: 15px;
+            text-align: center;
+            line-height: 1.5;
+            height: 60px;
+            @include breakpoints(small) {
+                font-size: 14px;
+            }
+            @include breakpoints(mobile) {
+                font-size: 13px;
+            }
+        }
+        @include breakpoints(medium) {
+            width: 350px;
+            padding-right: 40;
         }
         @include breakpoints(small) {
-            padding-top: 60px;
+            width: 300px;
+            padding-right: 30px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
         }
         @include breakpoints(mobile) {
-            padding-top: 60px;
+            width: 300px;
+            padding-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
         }
     }
+    @include breakpoints(small) {
+        padding-top: 60px;
+    }
+    @include breakpoints(mobile) {
+        padding-top: 60px;
+    }
+}
 .logo {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -50px;
+    right: -30px;
     z-index: 99;
-    width: 200px;
-    height: 100px;
-    background-color: $white-color;
-    border-radius: 8% 10% 0% 100% / 27% 0% 0% 55%  ;
+    width: 350px;
+    height: 150px;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 1px 3.5px 8px -1px #6a6a6a;
+    rotate: 12deg;
+    border-radius: 0 0 20px 45px;
     img {
-        max-width: 160px;
+        rotate: -12deg;
+        max-width: 180px;
         max-height: 75px;
+        -o-object-fit: contain;
         object-fit: contain;
         display: flex;
+        align-content: center;
+        position: relative;
+        bottom: -15px;
+        align-items: center;
+        right: -45px;
         @include breakpoints(medium) {
             width: 100px;
             height: 60px;
@@ -531,288 +656,304 @@ select {
         display: none;
     }
     @include breakpoints(mobile) {
-       display: none;
+        display: none;
     }
 }
-    // Start Home Page
-    .home {
-        position: relative;
-        background-image: url(../img/bg.webp);
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        // height: 100vh;
-        // overflow: hidden;
-        background-color: transparent;
-        .up-navbar {
-            background-color: rgba($background-color, 0.8);
-            padding: 5px 0;
-            ul {
-                list-style: none;
-                margin: 0;
-                text-align: left;
-                li {
-                    display: inline-block;
-                    flex-direction: row;
-                    padding: 0 5px;
-                    a {
-                        color: $white-color;
-                        font-size: 13px;
-                        @include transition;
-                        &:hover {
-                            color: $main-color;
-                        }
+// Start Home Page
+.home {
+    position: relative;
+    background-image: url("../img/bg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    // overflow: hidden;
+    background-color: transparent;
+    .up-navbar {
+        background: url("../img/bg.webp") no-repeat left top, linear-gradient(206deg,#074b50, #1a4943);
+        padding: 5px 0;
+        ul {
+            list-style: none;
+            margin: 0;
+            text-align: left;
+            li {
+                display: inline-block;
+                flex-direction: row;
+                padding: 0 5px;
+                a {
+                    color: $white-color;
+                    font-size: 13px;
+                    @include transition;
+                    &:hover {
+                        color: $black-color;
                     }
-                    .icon {
-                        color: $white-color;
-                        font-size: 13px;
-                        padding: 10px;
-                        line-height: 5px;
-                        border: 1px solid $gray-color;
-                        background: rgba($gray-color, 0.4);
+                }
+                .icon {
+                    color: $white-color;
+                    font-size: 13px;
+                    padding: 10px;
+                    line-height: 5px;
+                    background: rgba(28,41,30,0.4);
+                    border-radius: 50%;
+                    font-size: 13px;
+                    @include transition;
+                    &:hover {
+                        color: $black-color;
+                    }
+                }
+                .unread {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        background-color: red;
+                        padding: 3px;
+                        position: absolute;
+                        top: 8px;
+                        right: 7px;
                         border-radius: 50%;
-                        font-size: 13px;
-                        @include transition;
-                        &:hover {
-                            color: $main-color;
-                        }
-                    }
-                    .unread {
-                        position: relative;
-                        &::before {
-                            content: '';
-                            background-color: red;
-                            padding: 3px;
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            border-radius: 50%;
-                        }
                     }
                 }
             }
         }
+    }
 
-        .navbar {
-            padding: 20px 0;
-            margin-bottom: 20px;
-            background: $background-color;
-            background: $linear-color;
-            display: flex;
-            flex-direction: row;
-            .logo {
-                    display: none;
-                    position: relative;
-                    top: 0;
-                    right: 0px;
-                    width: 150px;
-                    height: 70px;
-                    background-color: $white-color;
-                    border-radius: 15px;
-                    text-align: center;
-                    img {
-                        margin: 0 auto;
-                        width: 130;
-                        height: 140;
-                        object-fit: contain;
-                    }
-                    @include breakpoints(small) {
-                        display: flex;
-                        align-items: center;
-                    }
-                    @include breakpoints(mobile) {
-                        display: flex;
-                        align-items: center;
-                    }
-            }
-            .ul-nav {
-                display: flex;
-                list-style: none;
-                justify-content: center;
+    .navbar {
+        padding: 20px 0;
+        margin-bottom: 20px;
+        background: $background-color;
+        background: $linear-color;
+        display: flex;
+        flex-direction: row;
+        .logo {
+            display: none;
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 70px;
+            background-color: $white-color;
+            border-radius: 15px;
+            text-align: center;
+            img {
                 margin: 0 auto;
-                li {
-                    display: flex;
-                    padding: 0 15px;
-
-                    @include breakpoints(small) {
-                        padding: 10px 7px;
-                    }
-                    @include breakpoints(mobile) {
-                        padding: 10px 7px;
-                    }
-                    a {
-                        color: $white-color;
-                        font-size: 15px;
-                        @include transition;
-                        &:hover {
-                            color: $main-color;
-                        }
-                        @include breakpoints(medium) {
-                            font-size: 12px;
-                        }
-                        @include breakpoints(mobile) {
-                            font-size: 12px;
-                        }
-                    }
-                }
-                @include breakpoints(small){
-                    display: flex;
-                    list-style: none;
-                    justify-content: flex-start;
-                    margin: 0 auto;
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-                @include breakpoints(mobile){
-                    display: flex;
-                    list-style: none;
-                    justify-content: flex-start;
-                    margin: 0 auto;
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
+                width: 130;
+                height: 140;
+                object-fit: contain;
             }
-            .attachment {
-                font-size: 14px;
-                padding: 10px 10px;
-                border-radius: 5px;
-                background: rgba($gray-color, 0.4);
-                color: $white-color;
-                margin: 0 10px;
-                .arrow {
-                    color: $gray-color;
-                    padding: 0 3px;
+            @include breakpoints(small) {
+                display: flex;
+                align-items: center;
+            }
+            @include breakpoints(mobile) {
+                display: flex;
+                align-items: center;
+            }
+        }
+        .ul-nav {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            margin: 0 auto;
+            li {
+                display: flex;
+                padding: 0 15px;
+
+                @include breakpoints(small) {
+                    padding: 10px 7px;
+                }
+                @include breakpoints(mobile) {
+                    padding: 10px 7px;
                 }
                 a {
                     color: $white-color;
+                    font-size: 15px;
                     @include transition;
                     &:hover {
                         color: $main-color;
                     }
-                }
-                @include breakpoints(small) {
-                    // margin: 10px auto;
-                    // font-size: 12px;
-                    display: none;
-                }
-                @include breakpoints(mobile) {
-                    // margin: 10px auto;
-                    // font-size: 12px;
-                    display: none;
-                }
-            }
-
-            @include breakpoints(small) {
-                flex-direction: column;
-                width: 100%;
-                height: 100%;
-                height: 100vh;
-                position: relative;
-                display: flex;
-                justify-content: flex-start;
-                padding: 30px 0 0;
-                display: none;
-            }
-            @include breakpoints(mobile) {
-                flex-direction: column;
-                width: 100%;
-                height: 100%;
-                height: 100vh;
-                position: relative;
-                display: flex;
-                justify-content: flex-start;
-                padding: 30px 0 0;
-                display: none;
-            }
-        }
-        // End Navbar
-        .info {
-            display: flex;
-            // height: 50vh;
-            align-items: center;
-            margin-top: 50px;
-
-            .import {
-                -webkit-box-shadow: 1px 3.5px 8px -1px $gray-color;
-                -moz-box-shadow: 1px 3.5px 8px -1px $gray-color;
-                box-shadow: 1px 3.5px 8px -1px $gray-color;
-                border-radius: 5px;
-                margin: 20px 0;
-                .head {
-                    margin: 5px;
-                    background: $background-color;
-                    background: $linear-color;
-                    color: $white-color;
-                    position: relative;
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 10px 5px;
-                    border-radius: 5px;
-                    .icon {
-                        width: 30px;
-                        height: 30px;
-                        position: relative;
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                            position: absolute;
-                        }
+                    @include breakpoints(medium) {
+                        font-size: 12px;
                     }
-                    h3 {
-                        display: inline-block;
-                        text-align: center;
-                        color: $white-color;
-                        font-size: 14px;
-                        margin: 0;
-                        padding: 0;
-                        line-height: 2;
-                    }
-                    .notification {
-                        width: 30px;
-                        height: 30px;
-                        line-height: 30px;
-                        background-color: rgba($gray-color, 0.5);
-                        text-align: center;
-                        color: $white-color;
-                        border-radius: 50%;
+                    @include breakpoints(mobile) {
                         font-size: 12px;
                     }
                 }
-                .body {
-                    padding: 15px 15px;
-                    background-color: $white-color;
-                    p {
-                        font-size: 13px;
-                        line-height: 1.6;
-                        color: $gray-color;
-                        text-align: center;
-                    }
+            }
+            @include breakpoints(small) {
+                display: flex;
+                list-style: none;
+                justify-content: flex-start;
+                margin: 0 auto;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            @include breakpoints(mobile) {
+                display: flex;
+                list-style: none;
+                justify-content: flex-start;
+                margin: 0 auto;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        .attachment {
+            font-size: 14px;
+            padding: 10px 30px;
+            border-radius: 5px;
+            background: rgba($icon-color, 0.4);
+            color: $white-color;
+            margin: 0 10px;
+            border: 1px solid transparent;
+            @include transition;
+            .arrow {
+                padding: 0 8px;
+                font-size: 30px;
+            }
+            a {
+                color: $white-color;
+                @include transition;
+                &:hover {
+                    color: $black-color;
+                   
                 }
+            }
+            @include breakpoints(small) {
+                // margin: 10px auto;
+                // font-size: 12px;
+                display: none;
+            }
+            @include breakpoints(mobile) {
+                // margin: 10px auto;
+                // font-size: 12px;
+                display: none;
+            }
+            &:hover {
+                border: 1px solid $border-color;
             }
         }
 
-        .footer {
-            margin: 10px 0 0;
-            color: $gray-color;
-            font-size: 14px;
-            text-align: center;
-            @include breakpoints(medium) {
-                font-size: 12px;
-             }
-            @include breakpoints(small) {
-                font-size: 13px;
-             }
-            @include breakpoints(mobile) {
-                font-size: 12px;
-             }
-             img {
-                width: 70px;
-                height: 110px;
-                object-fit: contain;
-             }
+        @include breakpoints(small) {
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            padding: 30px 0 0;
+            display: none;
+        }
+        @include breakpoints(mobile) {
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            padding: 30px 0 0;
+            display: none;
         }
     }
+    // End Navbar
+    .info {
+        display: flex;
+        // height: 50vh;
+        align-items: center;
+        margin-top: 50px;
+
+        .import {
+            -webkit-box-shadow: 1px 3.5px 8px -1px $gray-color;
+            -moz-box-shadow: 1px 3.5px 8px -1px $gray-color;
+            box-shadow: 1px 3.5px 8px -1px $gray-color;
+            border-radius: 5px;
+            margin: 20px 0;
+            .head {
+                margin: 5px;
+                background: $background-color;
+                background: $linear-color;
+                color: $white-color;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 5px;
+                border-radius: 5px;
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        position: absolute;
+                    }
+                }
+                h3 {
+                    display: inline-block;
+                    text-align: center;
+                    color: $white-color;
+                    font-size: 14px;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 2;
+                }
+                .notification {
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    background-color: rgba($gray-color, 0.5);
+                    text-align: center;
+                    color: $white-color;
+                    border-radius: 50%;
+                    font-size: 12px;
+                    cursor: default;
+                }
+            }
+            .body {
+                padding: 15px;
+                background-color: $white-color;
+                p {
+                    font-size: 13px;
+                    line-height: 1.6;
+                    color: $gray-color;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .footer {
+        margin: 10px auto 0;
+        color: #b3b3b3;
+        font-size: 14px;
+        text-align: center;
+        position: relative;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+        @include breakpoints(medium) {
+            font-size: 12px;
+        }
+        @include breakpoints(small) {
+            font-size: 13px;
+        }
+        @include breakpoints(mobile) {
+            font-size: 12px;
+        }
+        img {
+            object-fit: contain;
+            position: relative;
+            top: 4px;
+        }
+        p {
+            margin-bottom: 0 !important;
+        }
+    }
+    .footer-home {
+        position: absolute !important;
+    }
+}
 // Toolbar 
 
 #login {
@@ -828,46 +969,51 @@ select {
     }
 }
 
-
-    .tool-items {
-        max-width: 450px;
-        max-height: 350px;
-        padding: 5px;
+.tool-items {
+    max-width: 450px;
+    max-height: 350px;
+    padding: 5px;
+    color: $gray-color;
+    background: $white-color;
+    border-radius: 5px;
+    border: 1px solid $gray-color;
+    box-shadow: 1px 3.5px 8px -1px $gray-color;
+    a {
+        display: block;
+        padding: 7px 5px;
         color: $gray-color;
-        background: $white-color;
-        border-radius: 5px;
-        border: 1px solid $gray-color;
-        box-shadow: 1px 3.5px 8px -1px $gray-color;
-        a {
-            display: block;
-            padding: 5px;
-            color: $gray-color;
-            font-size: 13px;
-            text-align: center;
-            position: relative;
-            @include transition;
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     top: 0;
-            //     right: 0;
-            //     width: 100%;
-            //     height: 1px;
-            //     background-color: $gray-color;
-            // }
-            &:hover {
-                color: #000;
-            }
-        }
-        .more {
-            color: $main-color;
-            font-weight: bold;
-        }
-        ul {
-            list-style: none;
+        border-bottom: 1px solid $border-color;
+        font-size: 13px;
+        text-align: center;
+        position: relative;
+        @include transition;
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+        //     width: 100%;
+        //     height: 1px;
+        //     background-color: $gray-color;
+        // }
+        &:hover {
+            color: #000;
         }
     }
-
+    .more {
+        color: $text-color;
+        font-weight: bold;
+    }
+    ul {
+        list-style: none;
+    }
+}
+.tool-container.tool-bottom .arrow {
+    border-color: transparent transparent #fff;
+    left: 73% !important;
+    top: -14px;
+    margin-left: -7px;
+}
 // Start FillTer Page
 
 .fillter {
@@ -885,17 +1031,17 @@ select {
         border: 1px solid $gray-color;
         border-radius: 50px;
 
-        @include breakpoints(large){
+        @include breakpoints(large) {
             width: 260px;
         }
-        @include breakpoints(medium){
+        @include breakpoints(medium) {
             width: 50%;
         }
-        @include breakpoints(small){
+        @include breakpoints(small) {
             width: 48%;
             margin: 10px 0;
         }
-        @include breakpoints(mobile){
+        @include breakpoints(mobile) {
             width: 100%;
             margin: 10px 0;
         }
@@ -910,11 +1056,11 @@ select {
         &:focus {
             border: 1px solid $gray-color;
         }
-        @include breakpoints(small){
+        @include breakpoints(small) {
             width: 48%;
             margin: 10px 0;
         }
-        @include breakpoints(mobile){
+        @include breakpoints(mobile) {
             width: 48%;
             margin: 10px 0;
         }
@@ -923,12 +1069,12 @@ select {
     #date {
         width: 200px;
         cursor: pointer;
-       
-        @include breakpoints(small){
+
+        @include breakpoints(small) {
             width: 48%;
             margin: 10px 0;
         }
-        @include breakpoints(mobile){
+        @include breakpoints(mobile) {
             width: 48%;
             margin: 10px 0;
         }
@@ -955,13 +1101,13 @@ select {
             border-color: transparent;
             box-shadow: none;
         }
-        @include breakpoints(small){
+        @include breakpoints(small) {
             padding: 12px 25px;
             line-height: 5px;
             font-size: 12px;
             margin: 0 auto;
         }
-        @include breakpoints(mobile){
+        @include breakpoints(mobile) {
             padding: 12px 25px;
             line-height: 5px;
             font-size: 12px;
@@ -972,7 +1118,7 @@ select {
         color: rgba(0, 0, 0, 0);
         opacity: 1;
         display: block;
-        background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+        background: url("https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png") no-repeat;
         width: 20px;
         height: 20px;
         border-width: thin;
@@ -980,28 +1126,28 @@ select {
     }
 
     // input[type=date]::-webkit-datetime-edit-text {
-     
+
     //     display: none;
     // }
     // input[type=date]::-webkit-datetime-edit-month-field{
-      
+
     //     display: none;
     // }
     // input[type=date]::-webkit-datetime-edit-day-field {
-      
+
     //     display: none;
     // }
     // input[type=date]::-webkit-datetime-edit-year-field {
-      
+
     //     display: none;
     // }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
         flex-wrap: nowrap;
     }
-    @include breakpoints(small){
+    @include breakpoints(small) {
         flex-wrap: wrap;
     }
-    @include breakpoints(mobile){
+    @include breakpoints(mobile) {
         flex-wrap: wrap;
     }
 }
@@ -1019,7 +1165,7 @@ select {
             border-radius: 5px;
             position: relative;
             color: rgb(85, 85, 85);
-        
+
             ul {
                 display: flex;
                 justify-content: space-between;
@@ -1031,7 +1177,7 @@ select {
                     font-size: 13px;
                     .icon {
                         padding-left: 5px;
-                        color: rgba($gray-color, 0.8);;
+                        color: rgba($gray-color, 0.8);
                     }
                 }
             }
@@ -1087,7 +1233,7 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     input {
         width: 40px;
         margin: 0 10px;
@@ -1097,7 +1243,7 @@ select {
         border: 1px solid $gray-color;
         padding: 0;
         border-radius: 5px;
-        display: inline-block
+        display: inline-block;
     }
     .arrow {
         padding: 0 10px;
@@ -1126,14 +1272,14 @@ select {
             }
         }
     }
-        // input[type="number"]::-webkit-outer-spin-button,
-        // input[type="number"]::-webkit-inner-spin-button {
-        // -webkit-appearance: none;
-        // margin: 0;
-        // }
-        // input[type="number"] {
-        // -moz-appearance: textfield;
-        // }
+    // input[type="number"]::-webkit-outer-spin-button,
+    // input[type="number"]::-webkit-inner-spin-button {
+    // -webkit-appearance: none;
+    // margin: 0;
+    // }
+    // input[type="number"] {
+    // -moz-appearance: textfield;
+    // }
 }
 
 // End Fillter page
@@ -1179,8 +1325,7 @@ select {
         }
     }
     .content {
-        margin: 15px;
-        margin-bottom: 25px;
+        margin: 15px 15px 25px;
         // height: 600px;
         .subject {
             position: relative;
@@ -1242,7 +1387,7 @@ select {
             padding-bottom: 20px;
             width: 48%;
             text-align: center;
-            margin: 0 ;
+            margin: 0;
             a {
                 color: $main-color;
                 font-size: 15px;
@@ -1251,7 +1396,7 @@ select {
                 padding-bottom: 20px;
             }
 
-               .active {
+            .active {
                 position: relative;
                 @include transition;
                 &::after {
@@ -1264,7 +1409,7 @@ select {
                     background: $background-color;
                     background: $linear-color;
                 }
-                } 
+            }
             //     .show {
             //     background: $background-color;
             //     background: $linear-color;
@@ -1316,7 +1461,7 @@ select {
         padding: 10px;
         .icon-text {
             display: inline-block;
-            .file{
+            .file {
                 display: inline-block;
                 width: 30px;
                 height: 30px;
@@ -1329,34 +1474,35 @@ select {
                 position: relative;
                 top: 12px;
             }
-                h3,a {
-                    display: inline-block;
-                    font-size: 13px;
-                    color: $main-color;
-                    padding: 0 5px;
-                    margin: 0;
-                }
-                span {
-                    display: block;
-                    text-align: center;
-                    font-size: 12px;
-                    color: $gray-color;
-                    padding: 0 40px;
-                }
-                // a {
-                //     display: block;
-                //     text-align: center;
-                //     font-size: 10px;
-                //     color: $gray-color;
-                //     padding: 0 40px;
-                // }
+            a,
+            h3 {
+                display: inline-block;
+                font-size: 13px;
+                color: $main-color;
+                padding: 0 5px;
+                margin: 0;
             }
-        }
-        .info-icon {
-            display: block;
-            cursor: pointer;
+            span {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+                color: $gray-color;
+                padding: 0 40px;
+            }
+            // a {
+            //     display: block;
+            //     text-align: center;
+            //     font-size: 10px;
+            //     color: $gray-color;
+            //     padding: 0 40px;
+            // }
         }
     }
+    .info-icon {
+        display: block;
+        cursor: pointer;
+    }
+}
 
 .btn-send {
     list-style: none;
@@ -1399,25 +1545,25 @@ select {
         align-items: center;
         position: relative;
         margin: 0 5px;
-    
+        padding: 5px;
+
         &::after {
             content: '';
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 1px;
-            background-color: rgba($gray-color, 0.8);
+            background-color: rgba($border-color, 0.8);
             right: 0;
         }
 
         h5 {
-            color: #1196b1;
-            font-size: 15px;
-            font-weight: bold;
+            color: #33aeaa;
+            font-size: 13px;
             display: inline-block;
             margin: 0;
             padding: 5px;
-        
+
         }
         .close {
             color: $gray-color;
@@ -1447,54 +1593,54 @@ select {
 
     .modal-body {
         margin: 10px;
-       
+
         .nav-tabs {
             list-style: none;
             list-style: none;
-            padding: 0 0 20px 0;
+            padding: 0 0 20px;
             display: flex;
             justify-content: center;
             justify-items: center;
             li {
                 display: inline-block;
-               a {
-                // background: $background-color;
-                background: $gray-color;
-                padding: 3px 30px;
-                color: $white-color;
-                font-size: 15px;
-                @include breakpoints(small) {
-                    padding: 10px 20px;
-                    font-size: 10px;
+                a {
+                    // background: $background-color;
+                    background: $gray-color;
+                    padding: 5px 30px;
+                    color: $white-color;
+                    font-size: 15px;
+                    @include breakpoints(small) {
+                        padding: 10px 20px;
+                        font-size: 10px;
+                    }
+                    @include breakpoints(mobile) {
+                        padding: 10px 20px;
+                        font-size: 10px;
+                    }
                 }
-                @include breakpoints(mobile) {
-                    padding: 10px 20px;
-                    font-size: 10px;
-                }
-               }
 
-               .active {
-                background: $background-color;
-                background: $linear-color;
-                color: $white-color;
-                } 
+                .active {
+                    background: $background-color;
+                    background: $linear-color;
+                    color: $white-color;
+                }
                 .show {
-                background: $background-color;
-                background: $linear-color;
-                color: $white-color;
+                    background: $background-color;
+                    background: $linear-color;
+                    color: $white-color;
                 }
                 .left {
                     border-radius: 10px 0 0 10px;
                 }
                 .right {
-                    border-radius: 0px 10px 10px 0px;
+                    border-radius: 0 10px 10px 0;
                 }
             }
-           
+
         }
 
         .tab-content {
-            padding: 10px;
+            padding: 5 10px;
             .form {
                 text-align: right;
                 label {
@@ -1506,7 +1652,7 @@ select {
                 input {
                     display: block;
                     padding: 10px;
-                    border: 1px solid rgba($gray-color, 0.8);
+                    border: 1px solid rgba($border-color, 0.8);
                     border-radius: 50px;
                     width: 100%;
                     @include transition;
@@ -1524,7 +1670,7 @@ select {
                     position: relative;
                 }
                 .icon {
-                    position: absolute; 
+                    position: absolute;
                     background: $background-color;
                     background: $linear-color;
                     color: #fff;
@@ -1550,7 +1696,7 @@ select {
                 resize: none;
                 width: 100%;
                 height: 150px;
-                border: 1px solid rgba($gray-color, 0.8);
+                border: 1px solid rgba($border-color, 0.8);
                 border-radius: 15px;
                 @include transition;
                 padding: 15px;
@@ -1564,9 +1710,9 @@ select {
                 @include breakpoints(mobile) {
                     height: 100px;
                 }
-              }
+            }
 
-              .add-link {
+            .add-link {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -1591,7 +1737,7 @@ select {
                     font-weight: bold;
                     color: $main-color;
                 }
-              }
+            }
         }
     }
     .export {
@@ -1627,7 +1773,7 @@ select {
             top: 3px !important;
         }
         input#upload {
-            opacity: 0; 
+            opacity: 0;
             margin: 0;
             padding: 0;
             background: transparent;
@@ -1689,23 +1835,23 @@ select {
                     padding: 0 5px;
                     cursor: pointer;
                     &:hover {
-                        color:#000;
+                        color: #000;
                         cursor: pointer;
                     }
-                    
+
                     .icons {
                         display: inline-block;
                         padding: 0 3px;
                         @include transition;
                         &:hover {
-                            color:#000;
+                            color: #000;
                             cursor: pointer;
                         }
                     }
                 }
             }
-            .progress,
-            .link {
+            .link,
+            .progress {
                 margin-top: 2px;
                 height: 5px;
                 .progress-bar {
@@ -1723,7 +1869,6 @@ select {
             }
         }
     }
-
 
     .button-send {
         margin: 20px 0;
@@ -1745,13 +1890,13 @@ select {
         position: relative;
         left: 0;
         .icon {
-            padding: 0 30px 0 0px;
+            padding: 0 30px 0 0;
             color: #bdbdbd;
             @include breakpoints(small) {
-                padding: 0 25px 0 0px;
+                padding: 0 25px 0 0;
             }
             @include breakpoints(mobile) {
-                padding: 0 20px 0 0px;
+                padding: 0 20px 0 0;
             }
         }
         @include breakpoints(small) {
@@ -1771,7 +1916,6 @@ select {
     }
 }
 
-
 .checkbox {
     --border-default: #bbbbc1;
     --border-hover: #9898a3;
@@ -1783,15 +1927,15 @@ select {
     cursor: pointer;
     position: relative;
     -webkit-tap-highlight-color: transparent;
-  }
-  .fill {
+}
+.fill {
     border: 1px solid orange;
-  }
-  .checkbox svg {
+}
+.checkbox svg {
     display: block;
     position: absolute;
-  }
-  .checkbox input {
+}
+.checkbox input {
     display: block;
     outline: none;
     border: none;
@@ -1803,23 +1947,23 @@ select {
     // box-shadow: inset 0 0 0 1.5px var(--border, var(--border-default));
     background: orange;
     transition: orange 0.25s linear, box-shadow 0.25s linear;
-  }
-  .checkbox input + svg {
+}
+.checkbox input + svg {
     width: 21px;
     height: 18px;
     left: 0;
     top: 0;
     color: orange;
-  }
-  .checkbox input + svg .tick {
+}
+.checkbox input + svg .tick {
     stroke-dasharray: 20;
     stroke-dashoffset: var(--stroke-dashoffset, 20);
     transition: stroke-dashoffset 0.2s;
-  }
-  .checkbox input + svg .tick.mask {
+}
+.checkbox input + svg .tick.mask {
     stroke: var(--active-tick);
-  }
-  .checkbox input + svg + svg {
+}
+.checkbox input + svg + svg {
     width: 15px;
     height: 15px;
     fill: none;
@@ -1832,30 +1976,35 @@ select {
     stroke-dashoffset: 13.5px;
     pointer-events: none;
     -webkit-animation: var(--animation, none) 0.2s ease 0.175s;
-            animation: var(--animation, none) 0.2s ease 0.175s;
-  }
-  .checkbox input:checked {
+    animation: var(--animation, none) 0.2s ease 0.175s;
+}
+.checkbox input:checked {
     --background: transparent;
     --border: var(--active);
-  }
-  .checkbox input:checked + svg {
+}
+.checkbox input:checked + svg {
     --stroke-dashoffset: 0;
-  }
-  .checkbox input:checked + svg + svg {
+}
+.checkbox input:checked + svg + svg {
     --animation: check;
-  }
-  .checkbox:hover input:not(:checked) {
+}
+.checkbox:hover input:not(:checked) {
     --border: var(--border-hover);
-  }
-  
-  @-webkit-keyframes check {
+}
+
+@-webkit-keyframes check {
     100% {
-      stroke-dashoffset: 4.5px;
+        stroke-dashoffset: 4.5px;
     }
-  }
-  
-  @keyframes check {
+}
+
+@keyframes check {
     100% {
-      stroke-dashoffset: 4.5px;
+        stroke-dashoffset: 4.5px;
     }
-  }
+}
+
+
+.show-one {
+    z-index: 9999;
+}

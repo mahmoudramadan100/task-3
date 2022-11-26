@@ -32,5 +32,26 @@
 
 
 @mixin transition {
-    transition: 0.3s;
+    transition: 0.2s;
+}
+ 
+@mixin shadow {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+@mixin bg {
+    background: rgb(113,165,122);
+    background: -moz-linear-gradient(32deg, rgba(113,165,122,1) 15%, rgba(29,177,187,1) 79%);
+    background: -webkit-linear-gradient(32deg, rgba(113,165,122,1) 15%, rgba(29,177,187,1) 79%);
+    background: linear-gradient(32deg, rgba(113,165,122,1) 15%, rgba(29,177,187,1) 79%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#71a57a",endColorstr="#1db1bb",GradientType=1);
+}
+
+@mixin rotate {
+    @media (min-width:992px) and (max-width: 1130px) {
+        @content;
+    }
+}
+@mixin bg-img {
+    background: url("../../img/bg.webp") no-repeat left top, linear-gradient(206deg,#074b50, #1a4943);
 }
