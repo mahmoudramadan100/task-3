@@ -23,7 +23,7 @@
   });
   $('.info-icon').toolbar({
     content: '#info',
-      position: 'right'
+      position: 'right',
   });
   // $('.icon').toolbar({
   //   content: '#icon',

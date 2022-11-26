@@ -17,30 +17,34 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    
     <div class="overlay"></div>
-    <div class="body-login">
+    <div class="body-login re-code">
         <div class="container">
             <div class="form-login">
                 <div class="img">
                     <img src="../img/logo.png" alt="logo">
                 </div>
-                <span>  برجاء ادخال البريد الالكترونى لمسجل لدينا لارسالكود تفعيل لتتمكن من الدخول </span>
+                <p class="p">  برجاء ادخال كود التفعيل المرسل على البريد الالكترونى  </p>
                 <!-- Start Form -->
                 <form>
                     <div class="form-group">
-                        <input type="email" placeholder="البريد الإلكترونى">
+                        <input type="email" placeholder="كود التفعيل">
                         <span class="icon">
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class="fa-solid fa-pen"></i>
                         </span>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-                    <a href="re-code.html" type="submit" class="btn-login"> 
-                        إرسال كود التفعيل 
-                        <span class="icon">
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </span>
-                    </a>
+                    <div class="btn">
+                        <a href="code.html" type="submit" class="btn-login"> 
+                            اعاده إرسال كود التفعيل 
+                         </a>
+                         <a href="../index.html" type="submit" class="btn-login"> 
+                              دخول 
+                             <span class="icon">
+                                 <i class="fa-solid fa-arrow-left"></i>
+                             </span>
+                         </a>
+                    </div>
                   </form>
                   <!-- End Form -->
                   <div class="footer">
@@ -51,11 +55,12 @@
                         </a>
                             2019 &copy;
                     </p>
+                   
                 </div>
             </div>
+           
         </div>
     </div>
-
 
 
     <script src="../js/jquery-1.8.3.min.js"></script>
