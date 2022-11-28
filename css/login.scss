@@ -1,0 +1,53 @@
+
+@use "sass/color" as *;
+@use 'sass/varibles' as *;
+@use 'sass/mixins' as *;
+
+@font-face {
+    font-family: 'NotoKufiArabic';
+    src: url("../font/NotoKufiArabic-Medium.ttf") format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+body {
+    font-family: "NotoKufiArabic", sans-serif;
+    box-sizing: border-box;
+    text-align: right;
+    direction: rtl;
+    width: 100%;
+}
+
+.cover {
+    width: 100%;
+    background: url(../img/bg.webp) repeat left top, linear-gradient(206deg, #074b50, #1a4943);
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    .login-form {
+        background-color: #fff;
+        max-width: 600px;
+        min-width: 300px;
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+        left: 0;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            rotate: 50deg;
+            border-radius: 0 0 0 15%;
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+
+}
