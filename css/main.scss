@@ -531,10 +531,6 @@ select {
     @include breakpoints(mobile) {
         width: 100%;
     }
-
-    @include height {
-        width: 100%;
-    }
 }
 
 // Re-Code Page
@@ -660,7 +656,7 @@ select {
         right: 0;
         top: 20px;
         @include media-logo {
-            max-width: 110px;
+            max-width: 140px;
         }
         @include breakpoints(medium) {
             width: 100px;
@@ -692,7 +688,7 @@ select {
         rotate: 25deg;
     }
     @include media-logo {
-        width: 180px;
+        width: 240px;
     }
     @include breakpoints(small) {
         display: none;
@@ -853,6 +849,12 @@ select {
                     }
                 }
             }
+            @include breakpoints(media-logo) {
+                margin: 0 190px 0 0;
+            }
+            @include breakpoints(medium) {
+                margin: 0 140px 0 0;
+            }
             @include breakpoints(small) {
                 display: flex;
                 list-style: none;
@@ -887,8 +889,17 @@ select {
                 @include transition;
                 &:hover {
                     color: $black-color;
-                   
                 }
+            }
+            @include breakpoints(medium) {
+                font-size: 11px;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background: rgba(88, 132, 100, 0.8);
+                color: #fff;
+                margin: 0 10px;
+                border: 1px solid transparent;
+                transition: 0.2s;
             }
             @include breakpoints(small) {
                 // margin: 10px auto;
@@ -2333,3 +2344,4 @@ input[type="checkbox"]:before {
         background-color: #fff;
     }
   }
+
