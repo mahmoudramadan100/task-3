@@ -30,7 +30,6 @@
         <meta name="theme-color" content="#16363c">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/all.min.css">
-        <link rel="stylesheet" href="../css/jquery.toolbar.css">
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
@@ -47,19 +46,39 @@
                                     محمود ربيع محمد أحمد
                                 </a>
                             </li>
-                            <li>
+                            <li class="dropdown">
                                 <a href="#">
                                     <div class="icon unread">
                                         <i class="fa-solid fa-bell"></i>
                                     </div>
                                 </a>
+                                <div class="dropdown-menu-up">
+                                    <ul class="ul-box">
+                                        <li class="li-list">
+                                            <a href="#"> هناك العديم من الانواع المتوفره </a>
+                                        </li>
+                                        <li class="li-list">
+                                            <a href="#"> هناك العديم من الانواع المتوفره </a>
+                                        </li>
+                                        <li class="li-list">
+                                            <a href="#"> هناك العديم من الانواع المتوفره </a>
+                                        </li>
+                                        <li class="li-list">
+                                            <a href="#"> هناك العديم من الانواع المتوفره </a>
+                                        </li>
+                                        <li class="more">
+                                            <a href="#"> +99 المزيد</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li>
                                 <a href="../index.html">
-                                    <div class="icon login">
+                                    <div class="icon tooltip">
                                         <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i>
+                                        <div class="tooltip__content tooltip__content_bottom"> تسجيل الخروج </div>
                                     </div>
-                                </a>
+                                    </a>
                             </li>
                         </ul>
                     </div>
@@ -73,18 +92,18 @@
                         <img src="../img/logo.png" alt="logo">
                     </div>
                     <div class="ul-nav">
-                        <li>
+                        <li class="active">
                             <a href="#">
                                 الرئيسيه
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="fillter.html">
                                 ارسال معلومات مكانية
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="person.html">
                                 استقبال معلومات مكانية
                             </a>
                         </li>
@@ -109,9 +128,6 @@
 
                 <div class="info">
                     <div class="container">
-                        <div class="row">
-                            <div
-                                class="col-lg-4 offset-lg-2 col-md-4 offset-md-2  col-sm-8 offset-sm-2 col-8 offset-1">
                                 <div class="import">
                                     <div class="head">
                                         <div class="icon">
@@ -135,8 +151,8 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 offset-lg-2  col-sm-8 offset-sm-2 col-8 offset-1">
+                            <!-- </div>
+                            <div class="col-lg-4 offset-lg-2  col-sm-8 offset-sm-2 col-8 offset-1"> -->
                                 <div class="import">
                                     <div class="head">
                                         <div class="icon">
@@ -159,12 +175,10 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- Start Footer -->
-                <div class="footer footer-home">
+                <div class="footer">
                     <p>
                         احد مشاريع
                         <a href="#">
@@ -179,241 +193,7 @@
 
         <!-- Box Attach -->
 
-        <!-- Modal -->
-        <div
-            class="modal fade show-one"
-            id="icon"
-            tabindex="-1"
-            aria-labelledby="icon"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="icon">
-                            تبادل مرفقات
-                        </h5>
-                        <div class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-
-                        <ul class="nav nav-tabs">
-                            <li>
-                                <a data-toggle="tab" href="#import" class="active right">
-                                    بيانات المراسله
-                                </a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#export" class="left">
-                                    مرفقات المراسله
-                                </a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div id="import" class="tab-pane fade-in active">
-                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                 Repellat soluta, repellendus voluptatum id quo unde excepturi assumenda sapiente magnam iure quidem
-                                 repudiandae fuga eveniet qui magni praesentium voluptas, cupiditate possimus!</p>
-
-                            </div>
-                            <div id="export" class="tab-pane fade-in">
-                                <div class="export">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-6 col-sm-12 col-12">
-                                            <div class="form">
-                                                <label for="type">
-                                                    نوع المرفق
-                                                </label>
-                                                <input type="text" name="type">
-                                                <label>
-                                                    الشرح</label>
-                                                <textarea></textarea>
-                                                <div class="upload">
-                                                    <label for="exampleFormControlFile1">
-                                                        اسحب المرفقات هنا</label>
-                                                    <input type="file" class="upload-file" id="upload">
-                                                    <div class="icon-upload">
-                                                        <i class="fa-solid fa-plus"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="add-link">
-                                                    <h3>
-                                                        اضف رابط
-                                                    </h3>
-                                                </div>
-                                                <label for="subject">
-                                                    الموضوع
-                                                </label>
-                                                <input type="text" name="subject">
-
-                                                <label>اسم العميل المستقبل للطلب
-                                                </label>
-                                                <div class="input-text">
-                                                    <input type="text">
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-12">
-                                            <div class="line">
-                                                <!-- </div> -->
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>اسم المرفق</h3>
-                                                            <span class="icon-close icons">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div
-                                                                class="progress-bar"
-                                                                role="progressbar"
-                                                                style="width: 10%"
-                                                                aria-valuenow="10"
-                                                                aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>اسم المرفق</h3>
-                                                            <span class="icon-close icons">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div
-                                                                class="progress-bar"
-                                                                role="progressbar"
-                                                                style="width: 80%"
-                                                                aria-valuenow="80"
-                                                                aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>اسم المرفق</h3>
-                                                            <span class="icon-close icons">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div
-                                                                class="progress-bar"
-                                                                role="progressbar"
-                                                                style="width: 50%"
-                                                                aria-valuenow="50"
-                                                                aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>اسم المرفق</h3>
-                                                            <span class="icon-close icons">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div
-                                                                class="progress-bar"
-                                                                role="progressbar"
-                                                                style="width: 20%"
-                                                                aria-valuenow="20"
-                                                                aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>
-                                                                عنوان الرابط
-                                                            </h3>
-                                                            <span class="icon-close">
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-pen"></i>
-                                                                </div>
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-xmark"></i>
-                                                                </div>
-                                                            </span>
-                                                        </div>
-                                                        <a class="link">
-                                                            www.test.com
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>
-                                                                عنوان الرابط</h3>
-                                                            <span class="icon-close">
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-pen"></i>
-                                                                </div>
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-xmark"></i>
-                                                                </div>
-
-                                                            </span>
-                                                        </div>
-                                                        <a class="link">
-                                                            www.test.com
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="name-pro">
-                                                    <div class="item">
-                                                        <div class="name">
-                                                            <h3>
-                                                                عنوان الرابط</h3>
-                                                            <span class="icon-close">
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-pen"></i>
-                                                                </div>
-                                                                <div class="icons">
-                                                                    <i class="fa-solid fa-xmark"></i>
-                                                                </div>
-                                                            </span>
-                                                        </div>
-                                                        <a class="link">
-                                                            www.test.com
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="button-send">
-                                    <a href="fillter.html" type="submit" class="bttn-send">
-                                        ارسال
-                                        <span class="icon">
-                                            <i class="fa-solid fa-arrow-left"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
         <!-- Modal -->
         <div
             class="modal fade"
@@ -453,8 +233,9 @@
                                     </label>
                                     <div class="input-text">
                                         <input type="text">
-                                        <div class="icon" data-toggle="modal" data-target="#icon">
+                                        <div class="icon tooltip" data-toggle="modal" data-target="#icon">
                                             <i class="fa-solid fa-plus"></i>
+                                            <div class="tooltip__content tooltip__content_top">اضافه اكثر من مستقبل </div>
                                         </div>
                                     </div>
                                     <label for="subject">
@@ -663,44 +444,345 @@
                 </div>
             </div>
         </div>
-        <!-- toolbar -->
-        <div id="toolbar-unread" class="hidden">
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#">
-                هناك العديد من الانواع المتوفره
-            </a>
-            <a href="#" class="more">
-                المزيد +99
-            </a>
-        </div>
 
-        <div id="login" class="hidden">
-            <a href="#">
-                تسجيل الخروج
-            </a>
-        </div>
+          <!-- Modal -->
+        <div
+            class="modal fade show-one"
+            id="icon"
+            tabindex="-1"
+            aria-labelledby="icon"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="icon">
+                            تبادل مرفقات
+                        </h5>
+                        <div class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="modal-body">
 
-        <!-- <div id="icon" class="hidden"> <a href="#"> اضافه اكثر من مستقبل </a>
-        </div> -->
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a data-toggle="tab" href="#import" class="active right">
+                                    بيانات المراسله
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#export" class="left disabled">
+                                    مرفقات المراسله
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="" class="tab-pane fade-in active choose-person">
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <label for="choose" class="choose">
+                                        <input type="checkbox" >
+                                        <span> اسم الوظف قم واحد</span>
+                                    </label>
+                                </div>
+
+                              </div>
+                            </div>
+                            <!-- <div id="" class="tab-pane fade-in">
+                                <div class="export">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-6 col-sm-12 col-12">
+                                            <div class="form">
+                                                <label for="type">
+                                                    نوع المرفق
+                                                </label>
+                                                <input type="text" name="type">
+                                                <label>
+                                                    الشرح</label>
+                                                <textarea></textarea>
+                                                <div class="upload">
+                                                    <label for="exampleFormControlFile1">
+                                                        اسحب المرفقات هنا</label>
+                                                    <input type="file" class="upload-file" id="upload">
+                                                    <div class="icon-upload">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="add-link">
+                                                    <h3>
+                                                        اضف رابط
+                                                    </h3>
+                                                </div>
+                                                <label for="subject">
+                                                    الموضوع
+                                                </label>
+                                                <input type="text" name="subject">
+
+                                                <label>اسم العميل المستقبل للطلب
+                                                </label>
+                                                <div class="input-text">
+                                                    <input type="text">
+                                                    <div class="icon">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-12">
+                                            <div class="line">
+                                               
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>اسم المرفق</h3>
+                                                            <span class="icon-close icons">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div
+                                                                class="progress-bar"
+                                                                role="progressbar"
+                                                                style="width: 10%"
+                                                                aria-valuenow="10"
+                                                                aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>اسم المرفق</h3>
+                                                            <span class="icon-close icons">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div
+                                                                class="progress-bar"
+                                                                role="progressbar"
+                                                                style="width: 80%"
+                                                                aria-valuenow="80"
+                                                                aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>اسم المرفق</h3>
+                                                            <span class="icon-close icons">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div
+                                                                class="progress-bar"
+                                                                role="progressbar"
+                                                                style="width: 50%"
+                                                                aria-valuenow="50"
+                                                                aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>اسم المرفق</h3>
+                                                            <span class="icon-close icons">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div
+                                                                class="progress-bar"
+                                                                role="progressbar"
+                                                                style="width: 20%"
+                                                                aria-valuenow="20"
+                                                                aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>
+                                                                عنوان الرابط
+                                                            </h3>
+                                                            <span class="icon-close">
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-pen"></i>
+                                                                </div>
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                        <a class="link">
+                                                            www.test.com
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>
+                                                                عنوان الرابط</h3>
+                                                            <span class="icon-close">
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-pen"></i>
+                                                                </div>
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </div>
+
+                                                            </span>
+                                                        </div>
+                                                        <a class="link">
+                                                            www.test.com
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="name-pro">
+                                                    <div class="item">
+                                                        <div class="name">
+                                                            <h3>
+                                                                عنوان الرابط</h3>
+                                                            <span class="icon-close">
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-pen"></i>
+                                                                </div>
+                                                                <div class="icons">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                        <a class="link">
+                                                            www.test.com
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button-send">
+                                    <a href="fillter.html" type="submit" class="bttn-send">
+                                        ارسال
+                                        <span class="icon">
+                                            <i class="fa-solid fa-arrow-left"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="dropdown">
+
+        </div>
 
         <script src="../js/jquery-1.8.3.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/all.min.js"></script>
-        <script src="../js/jquery.toolbar.min.js"></script>
         <script src='../js/recaptcha/api.js'></script>
         <script src="../js/main.js"></script>
     </body>

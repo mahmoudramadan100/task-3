@@ -52,6 +52,18 @@
         @content;
     }
 }
+@mixin media-logo {
+    @media (min-width:992px) and (max-width: 1300px) {
+        @content;
+    }
+}
 @mixin bg-img {
     background: url("../../img/bg.webp") no-repeat left top, linear-gradient(206deg,#074b50, #1a4943);
+}
+
+
+@mixin height {
+    @media (min-height:650px) and (max-height: 1200px) {
+        @content;
+    }
 }
